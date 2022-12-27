@@ -1,7 +1,36 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const Login = () => {
+
+  const [user, setUser] = useState("")
+  const [pass, setPass] = useState("")
+
+  const handleUser =(inputUser) =>{
+    setUser(inputUser)
+  }
+
+  const handlePassword =(inputPassword) =>{
+    setPass(inputPassword)
+  }
+
+  const onLogin = () => {
+    const requestingData = {
+      user: user,
+      password: pass,
+    };
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/endoint",
+      data: requestingData,
+    }).then((result) => {
+      
+      window.location.replace("/dashboard");
+    });
+  }
+
+
   return (
     <>
       <div
@@ -33,6 +62,8 @@ const Login = () => {
                   id="disabledTextInput"
                   placeholder="Input your Username"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handleName(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex">
@@ -41,6 +72,8 @@ const Login = () => {
                   id="disabledTextInput"
                   placeholder="Input your Password"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handlePassword(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 justify-content-center">
@@ -48,7 +81,7 @@ const Login = () => {
                   Don't have an account yet? click here to register an account!
                 </a>
               </Form.Group>
-              <Button type="submit ">Login</Button>
+              <Button onClick={() => onLogin()}>Login</Button>
             </Form>
           </div>
         </div>

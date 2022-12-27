@@ -1,7 +1,46 @@
 import React from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 const Register = () => {
+
+  const [name, setName] = useState("")
+  const [user, setUser] = useState("")
+  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+
+  const handleName =(inputName) =>{
+    setName(inputName)
+  }
+
+  const handleUser =(inputUser) =>{
+    setUser(inputUser)
+  }
+
+  const handlePassword =(inputPassword) =>{
+    setPassword(inputPassword)
+  }
+
+  const handleEmail =(inputEmail) =>{
+    setEmail(inputEmail)
+  }
+
+  const onRegister = () =>{
+    const requestingData = {
+      name: name,
+      user: user,
+      password: password,
+      email: email
+    };
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/iniApaGaTau",
+      data: requestingData,
+    }).then((result) => {console.log(result.data)}).catch((e) => alert("e"));
+  };
+  
+
   return (
     <>
       <div
@@ -33,6 +72,8 @@ const Register = () => {
                   id="disabledTextInput"
                   placeholder="Input your Name"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handleName(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex">
@@ -41,6 +82,8 @@ const Register = () => {
                   id="disabledTextInput"
                   placeholder="Input your Username"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handleUser(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex">
@@ -49,6 +92,8 @@ const Register = () => {
                   id="disabledTextInput"
                   placeholder="Input your Password"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handlePassword(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex">
@@ -57,6 +102,8 @@ const Register = () => {
                   id="disabledTextInput"
                   placeholder="Input your E-mail Address"
                   style={{ width: "300px" }}
+                  required
+                  onChange={(event) => handleEmail(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 justify-content-center">
@@ -64,7 +111,7 @@ const Register = () => {
                   Already have an account? click here to Login!
                 </a>
               </Form.Group>
-              <Button type="submit ">Register</Button>
+              <Button onClick={() => onRegister()}>Register</Button>
             </Form>
           </div>
         </div>
