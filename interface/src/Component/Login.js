@@ -21,12 +21,12 @@ const Login = () => {
       password: pass,
     };
     axios({
-      method: "POST",
+      method: "GET",
       url: "http://localhost:3000/endoint",
       data: requestingData,
     }).then((result) => {
-      
-      window.location.replace("/dashboard");
+      localStorage.setItem("nama", result.)
+      window.location.replace("/Home");
     });
   }
 
