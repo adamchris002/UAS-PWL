@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  Container,
-  Navbar,
-  Nav,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
+import { Container, Navbar, Nav, Form, Button, Card } from "react-bootstrap";
 import axios from "axios";
 
 function Home({ title }) {
   const [course, setCourse] = useState([]);
+  const [classIndex, setClassIndex] = useState("");
+  const [classData, setClassData] = useState([])
 
   useEffect(() => {
     axios({
@@ -18,6 +13,16 @@ function Home({ title }) {
       url: "http://localhost:3000/class",
     }).then((result) => setCourse(result.data));
   }, []);
+
+  const viewDetails = (index) => {
+    setClassIndex(index.object.id)
+    console.log(classIndex)
+    axios({
+      method: "GET",
+      url: `http://localhost:3000/class/view/${classIndex}`,
+    }).then((result) => setClassData(result.data))
+    console.log(classData)
+  }
 
   return (
     <>
@@ -34,11 +39,13 @@ function Home({ title }) {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="#action2">Cart</Nav.Link>
               </Nav>
               <Form className="d-flex">
-                <a href="/login" className="btn btn-danger">Logout</a>
+                <a href="/login" className="btn btn-danger">
+                  Logout
+                </a>
               </Form>
             </Navbar.Collapse>
           </Container>
@@ -51,8 +58,18 @@ function Home({ title }) {
         <div className="row justify-content-center">
           {course.map((object, i) => {
             return (
-              <div className="col m-4" style={{justifyContent: "center"}} key={i + 1}>
-                <Card style={{ width: "300px", height: "300px", justifyContent: "center"}}>
+              <div
+                className="col m-4"
+                style={{ justifyContent: "center" }}
+                key={i + 1}
+              >
+                <Card
+                  style={{
+                    width: "300px",
+                    height: "300px",
+                    justifyContent: "center",
+                  }}
+                >
                   <Card.Body className="">
                     <Card.Title>{object.name}</Card.Title>
                     <Card.Text>{object.description}</Card.Text>
@@ -65,7 +82,11 @@ function Home({ title }) {
                         marginBottom: 15,
                       }}
                     >
-                      <Button>Add to Cart</Button>
+                      <Button
+                      onClick={() => viewDetails({object})}
+                      >
+                        View Details
+                      </Button>
                       <Card.Text
                         style={{
                           marginLeft: 15,

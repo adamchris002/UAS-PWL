@@ -22,6 +22,16 @@ class ClassController {
             res.json(err)
         }
     }
+
+    static async viewClass(req, res){
+        try {
+            let id = Number(req.params.id)
+            let result = await classlist.findOne({where: {id}})
+            res.json(result)
+        } catch (err) {
+            res.json(err)
+        }
+    }
 }
 
 module.exports = ClassController
