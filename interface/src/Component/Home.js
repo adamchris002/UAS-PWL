@@ -10,24 +10,25 @@ class Home extends React.Component {
       course: [],
       classIndex: "",
       classData: [],
+      courseDetail: [],
     };
   }
+
+  onLogout = () => {
+    this.props.changePage("login");
+  };
 
   componentDidMount() {
     axios({
       method: "GET",
       url: "http://localhost:3000/class",
-    }).then((result) => this.setState({course: result.data}));
-  };
+    }).then((result) => this.setState({ course: result.data }));
+  }
 
    viewDetails = (index) => {
-    this.setState({classIndex: index.id})
-    axios({
-      method: "GET",
-      url: `http://localhost:3000/class/view/${this.state.classIndex}`,
-    }).then((result) => this.setState({classData: result.data}))
-    this.props.addView(this.state.classData)
-  }
+    this.props.getIndex(index.id)
+    this.props.changePage("details")
+   };
 
   render() {
     return (
@@ -49,17 +50,20 @@ class Home extends React.Component {
                   <Nav.Link href="#action2">Cart</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
-                  <a href="/login" className="btn btn-danger">
+                  <Button
+                    onClick={() => this.onLogout()}
+                    className="btn btn-danger"
+                  >
                     Logout
-                  </a>
+                  </Button>
                 </Form>
               </Navbar.Collapse>
             </Container>
           </Navbar>
         </div>
-  
+
         <h2 className="container">Welcome to online course</h2>
-  
+
         <div className="justify-content-center container">
           <div className="row justify-content-center">
             {this.state.course.map((object, i) => {
@@ -79,7 +83,7 @@ class Home extends React.Component {
                     <Card.Body className="">
                       <Card.Title>{object.name}</Card.Title>
                       <Card.Text>{object.description}</Card.Text>
-  
+
                       <div
                         className="d-flex"
                         style={{
@@ -88,9 +92,7 @@ class Home extends React.Component {
                           marginBottom: 15,
                         }}
                       >
-                        <Button
-                        onClick={() => this.viewDetails(object)}
-                        >
+                        <Button onClick={() => this.viewDetails(object)}>
                           View Details
                         </Button>
                         <Card.Text

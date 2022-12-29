@@ -12,9 +12,7 @@ const Login = () => {
   const handleUser =(inputUser) =>{
     setUser(inputUser)
   }
-  const handleName = () => {
-    
-  }
+  
 
   const handlePassword =(inputPassword) =>{
     setPass(inputPassword)
@@ -68,7 +66,7 @@ const Login = () => {
                   placeholder="Input your Username"
                   style={{ width: "300px" }}
                   required
-                  onChange={(event) => handleName(event.target.value)}
+                  onChange={(event) => handleUser(event.target.value)}
                 />
               </Form.Group>
               <Form.Group className="mb-3 d-flex">

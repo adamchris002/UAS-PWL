@@ -35,8 +35,9 @@ const Register = () => {
     };
     axios({
       method: "POST",
-      url: "http://localhost:3000/iniApaGaTau",
+      url: "http://localhost:3000/user/register",
       data: requestingData,
+      
     }).then((result) => {console.log(result.data)}).catch((e) => alert("e"));
   };
   
