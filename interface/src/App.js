@@ -1,10 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Component/home";
 import Login from "./Component/login";
 import Register from "./Component/register";
 import Details from "./Component/details";
 import React from "react";
-import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
