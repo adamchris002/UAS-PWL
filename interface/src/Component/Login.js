@@ -1,6 +1,8 @@
+import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
+
 
 const Login = () => {
 
@@ -9,6 +11,9 @@ const Login = () => {
 
   const handleUser =(inputUser) =>{
     setUser(inputUser)
+  }
+  const handleName = () => {
+    
   }
 
   const handlePassword =(inputPassword) =>{
@@ -25,7 +30,7 @@ const Login = () => {
       url: "http://localhost:3000/endoint",
       data: requestingData,
     }).then((result) => {
-      localStorage.setItem("nama", result.)
+      localStorage.setItem("nama", result)
       window.location.replace("/Home");
     });
   }
