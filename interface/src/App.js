@@ -15,6 +15,7 @@ class App extends React.Component {
   }
 
   addView = (data) => {
+    this.state.viewsData.length = 0;
     this.setState({ viewsData: this.state.viewsData.concat(data) });
   };
 
