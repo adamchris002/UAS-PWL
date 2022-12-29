@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Navbar, Nav, Form, Button, Card } from "react-bootstrap";
+import {
+  Container,
+  Navbar,
+  Nav,
+  Form,
+  Button,
+  Card,
+  ButtonGroup,
+} from "react-bootstrap";
 import axios from "axios";
 
 class Home extends React.Component {
@@ -25,10 +33,10 @@ class Home extends React.Component {
     }).then((result) => this.setState({ course: result.data }));
   }
 
-   viewDetails = (index) => {
-    this.props.getIndex(index.id)
-    this.props.changePage("details")
-   };
+  viewDetails = (index) => {
+    this.props.getIndex(index.id);
+    this.props.changePage("details");
+  };
 
   render() {
     return (
@@ -62,7 +70,14 @@ class Home extends React.Component {
           </Navbar>
         </div>
 
-        <h2 className="container">Welcome to online course</h2>
+        <div className="container">
+          <h2>Welcome to online course</h2>
+          <ButtonGroup>
+            <Button variant="outline-primary">Software Engineering</Button>
+            <Button variant="outline-primary">Data Science</Button>
+            <Button variant="outline-primary">Management</Button>
+          </ButtonGroup>
+        </div>
 
         <div className="justify-content-center container">
           <div className="row justify-content-center">
