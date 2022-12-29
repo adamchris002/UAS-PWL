@@ -71,7 +71,7 @@ class Home extends React.Component {
         </div>
 
         <div className="container">
-          <h2>Welcome to online course</h2>
+          <h2>Welcome to Bimbel Semesta</h2>
           <ButtonGroup>
             <Button variant="outline-primary">Software Engineering</Button>
             <Button variant="outline-primary">Data Science</Button>
