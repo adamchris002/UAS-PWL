@@ -17,6 +17,19 @@ class UserController {
       res.json(err);
     }
   }
+
+  static async login(req, res) {
+    try {
+      const { username, password } = req.body;
+
+      const result = await user.findOne({
+        where: { username: username, password: password },
+      });
+      res.json(result);
+    } catch (err) {
+      res.json(err);
+    }
+  }
 }
 
 module.exports = UserController;

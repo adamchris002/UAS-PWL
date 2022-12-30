@@ -16,6 +16,21 @@ class Details extends React.Component {
     }).then((result) => this.setState({ courseData: result.data }));
   }
 
+  onLogout = () => {};
+
+  onAdd = () => {
+    const requestingData = {
+      name: this.state.courseData.name,
+      price: this.state.courseData.price,
+      classcode: this.state.courseData.code,
+    };
+    axios({
+      method: "POST",
+      url: `http://localhost:3000/cart/addcart`,
+      data: requestingData,
+    }).then(() => this.props.changePage("home"));
+  };
+
   render() {
     console.log(this.state.courseData);
     return (
@@ -86,6 +101,7 @@ class Details extends React.Component {
               justifyContent: "center",
             }}
             className="justify-content-center"
+            onClick={() => this.onAdd()}
           >
             Add to Cart
           </Button>
