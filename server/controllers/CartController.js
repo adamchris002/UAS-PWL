@@ -16,7 +16,7 @@ class CartController {
   }
   static async deleteCart(req, res) {
     try {
-      const { id } = req.body;
+      const id = Number(req.params.id);
 
       let result = await cart.destroy({
         where: { id },

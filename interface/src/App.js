@@ -2,6 +2,7 @@ import Home from "./Component/home";
 import Login from "./Component/login";
 import Register from "./Component/register";
 import Details from "./Component/details";
+import Cart from "./Component/cart";
 import React from "react";
 
 class App extends React.Component {
@@ -32,14 +33,14 @@ class App extends React.Component {
           <Register changePage={this.changePage} />
         ) : this.state.page === "home" ? (
           <Home changePage={this.changePage} getIndex={this.getIndex} />
-        ) : (
+        ) : this.state.page === "details" ? (
            
             <Details
               changePage={this.changePage}
               index={this.state.viewIndex}
             />
           
-        )}
+        ): (<Cart changePage={this.changePage}/>)}
 
       </div>
 

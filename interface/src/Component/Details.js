@@ -96,6 +96,7 @@ class Details extends React.Component {
           </div>
           <br />
           <br />
+          <div style={{display: "flex", justifyContent: "center", marginTop: "50px", marginBottom: "50px"}}>
           <Button
             style={{
               justifyContent: "center",
@@ -105,6 +106,7 @@ class Details extends React.Component {
           >
             Add to Cart
           </Button>
+          </div>
         </div>
       </>
     );

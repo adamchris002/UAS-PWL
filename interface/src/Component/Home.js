@@ -45,7 +45,6 @@ class Home extends React.Component {
           <Navbar bg="light" expand="lg">
             <Container fluid>
               <Navbar.Brand href="#">
-                {localStorage.getItem("nama")}{" "}
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
@@ -55,7 +54,10 @@ class Home extends React.Component {
                   navbarScroll
                 >
                   <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="#action2">Cart</Nav.Link>
+                  <Nav.Link href="/" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.props.changePage("cart")}}>Cart</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                   <Button
