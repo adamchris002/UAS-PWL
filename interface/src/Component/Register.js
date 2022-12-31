@@ -53,7 +53,7 @@ class Register extends React.Component {
       <>
         <div
           className="d-flex justify-content-center"
-          style={{ height: "700px", alignItems: "center" }}
+          style={{ height: "700px", alignItems: "center", margin: "20px", padding: "50px" }}
         >
           <div
             style={{
@@ -61,45 +61,46 @@ class Register extends React.Component {
               alignItems: "center",
               boxShadow: "1px 2px 5px",
               borderRadius: "15px",
-              height: "600px",
-              width: "600px",
               justifyContent: "center",
+              height: "450px",
             }}
           >
             <div>
-              <h1 style={{ marginBottom: "20px" }}>Register Page</h1>
               <Form
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
+                  marginLeft: "7px",
+                  marginRight: "7px"
                 }}
               >
+                <h5 style={{ marginBottom: "20px" }}>Register Page</h5>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>Name:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>Name:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your Name"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) => this.handleName(event.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>Username:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>Username:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your Username"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) => this.handleUser(event.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>Password:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>Password:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your Password"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) =>
                       this.handlePassword(event.target.value)
@@ -108,11 +109,11 @@ class Register extends React.Component {
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>E-mail:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>E-mail:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your E-mail Address"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) => this.handleEmail(event.target.value)}
                   />
@@ -128,7 +129,9 @@ class Register extends React.Component {
                     Already have an account? click here to Login!
                   </a>
                 </Form.Group>
-                <Button onClick={() => this.onRegister()}>Register</Button>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button onClick={() => this.onRegister()}>Register</Button>
+                </div>
               </Form>
             </div>
           </div>

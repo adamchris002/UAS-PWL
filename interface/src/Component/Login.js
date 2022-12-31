@@ -45,7 +45,7 @@ class Login extends React.Component {
       <>
         <div
           className="d-flex justify-content-center"
-          style={{ height: "700px", alignItems: "center" }}
+          style={{ height: "700px", alignItems: "center", margin: "20px", padding: "50px" }}
         >
           <div
             style={{
@@ -53,35 +53,37 @@ class Login extends React.Component {
               alignItems: "center",
               boxShadow: "1px 2px 5px",
               borderRadius: "15px",
-              height: "600px",
-              width: "600px",
               justifyContent: "center",
+              height: "400px",
+              
             }}
           >
             <div>
-              <h1 style={{ marginBottom: "20px" }}>Login Page</h1>
               <Form
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
+                  marginLeft: "7px", 
+                  marginRight: "7px", 
                 }}
               >
+                <h5 style={{ marginBottom: "20px" }}>Login Page</h5>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>Username:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>Username:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your Username"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) => this.handleUser(event.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3 d-flex">
-                  <Form.Label style={{ width: "110px" }}>Password:</Form.Label>
+                  <Form.Label style={{ width: "90px" }}>Password:</Form.Label>
                   <Form.Control
                     id="disabledTextInput"
                     placeholder="Input your Password"
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                     required
                     onChange={(event) =>
                       this.handlePassword(event.target.value)
@@ -101,7 +103,9 @@ class Login extends React.Component {
                     account!
                   </a>
                 </Form.Group>
-                <Button onClick={() => this.handleLogin()}>Login</Button>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button onClick={() => this.handleLogin()}>Login</Button>
+                </div>
               </Form>
             </div>
           </div>

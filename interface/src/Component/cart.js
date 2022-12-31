@@ -87,26 +87,27 @@ handleShow = () => {
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <h3>{object.name}</h3>
+                    <h5>{object.name}</h5>
                     <Button
                       className="btn btn-danger"
                       onClick={() => this.onDelete(object.id)}
+                      style={{height: "30px", textAlign: "center", fontSize: "12px"}}
                     >
                       Delete
                     </Button>
                   </div>
                   <div style={{ display: "flex" }}>
                     <div style={{ display: "flex" }}>
-                      <h5>Class Code: </h5>
-                      <h5 style={{ marginLeft: "5px", fontWeight: "bold" }}>
+                      <p>Class Code: </p>
+                      <p style={{ marginLeft: "5px", fontWeight: "bold" }}>
                         {object.classcode}
-                      </h5>
+                      </p>
                     </div>
                     <div style={{ display: "flex", marginLeft: "10px" }}>
-                      <h5>Price: </h5>
-                      <h5 style={{ marginLeft: "5px", fontWeight: "bold" }}>
+                      <p>Price: </p>
+                      <p style={{ marginLeft: "5px", fontWeight: "bold" }}>
                         $. {object.price}
-                      </h5>
+                      </p>
                     </div>
                   </div>
                 </div>
