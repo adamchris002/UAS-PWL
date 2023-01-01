@@ -42,10 +42,18 @@ class Register extends React.Component {
       url: "http://localhost:3000/user/register",
       data: requestingData,
     })
-      .then((result) => {
-        console.log(result.data);
-      })
+      .then(() => {
+        if (this.state.name === "" || this.state.user === "" || this.state.password === "" || this.state.email === "") {
+          alert("Semua data harus di isi!");
+        } else {
+          alert("berhasil membuat akun")
+          this.props.changePage("login");
+        }
+      }
+        )
       .catch((e) => alert("e"));
+
+
   };
 
   render() {

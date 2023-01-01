@@ -32,7 +32,10 @@ class Login extends React.Component {
       url: "http://localhost:3000/user/login",
       data: dataUser,
     }).then((result) => {
-      if (result.data === null) {
+      if ( this.state.user === "" || this.state.pass === "") {
+        alert("Semua data harus di isi!");
+      }
+      else if (result.data === null) {
         alert("Data yang dimasukkan tidak sesuai");
       } else {
         this.props.changePage("home");

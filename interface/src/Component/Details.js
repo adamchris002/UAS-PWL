@@ -52,7 +52,7 @@ class Details extends React.Component {
               </Nav>
               <Form className="d-flex">
                 <Button
-                  onClick={() => this.onLogout()}
+                  onClick={() => this.props.changePage("login")}
                   className="btn btn-danger"
                 >
                   Logout

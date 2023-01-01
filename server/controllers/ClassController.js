@@ -35,6 +35,24 @@ class ClassController {
       res.json(err);
     }
   }
+
+  static async updateClass(req, res) {
+    try {
+      let id = Number(req.params.id);
+      const { code } = req.body;
+      let result = await classlist.update(
+        {
+          code,
+        },
+        {
+          where: { id },
+        }
+      );
+      res.json(result);
+    } catch (err) {
+      res.json(err);
+    }
+  }
 }
 
 module.exports = ClassController;
